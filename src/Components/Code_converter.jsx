@@ -13,7 +13,7 @@ function Code_converter() {
  const[targetLanguage,setTargetLanguage]=useState("python")
   const handleQualityCheck = async() => {
     // Implement quality check logic here
-let res=await fetch(`baseUrl/quality`,{
+let res=await fetch(`${baseUrl}/quality`,{
     method:"POST",
     headers:{
         'Content-Type':"application/json"
@@ -27,7 +27,7 @@ setOutput(data.qualityCheckResult)
 
   const handleDebug = async() => {
     // Implement debugging logic here
-let res=await fetch(`baseUrl/debug`,{
+let res=await fetch(`${baseUrl}/debug`,{
     method:"POST",
     headers:{
         "Content-Type":"application/json"
@@ -44,7 +44,7 @@ setOutput(data.debugSuggestions)
     const data={
         code,targetLanguage
     }
-let res=await fetch(`baseUrl/convert`,{
+let res=await fetch(`${baseUrl}/convert`,{
     method:"POST",
     headers:{
         "Content-Type":"application/json"
