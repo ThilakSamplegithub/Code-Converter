@@ -1,25 +1,51 @@
 .App {
   text-align: center;
+  /* border: 1px solid red; */
+  margin-top: 20px;
+  /* background-color: blue; */
 }
 .app {
   display: flex;
   height: 100vh;
 }
-
 .editor {
   flex: 1;
   background-color: black;
   /* border:1px solid red; */
   color: white;
-  padding: 10px;
   height: 100%;
   overflow: auto;
 }
-
+.buttons_at_top{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.buttons_at_top button{
+  padding:7px;
+  cursor: pointer;
+  margin:0px 5px 10px 10px
+}
+.buttons_at_top select{
+  padding: 7px;
+  cursor:pointer;
+  background-color: rgb(238,238,238);
+}
+.buttons_at_top div:nth-child(2){
+  margin: 0px  10px;
+  /* border: 1px dotted red; */
+}
+.output_response{
+  width:100%;
+  /* border:1px solid orange; */
+  white-space: pre-wrap;
+  text-align: left;
+}
 .output {
   flex: 1;
   background-color: lightblue;
-  padding: 10px;
+  /* border: 1px solid red; */
+  /* padding: 10px; */
   height: 100%;
   overflow: auto;
 }
