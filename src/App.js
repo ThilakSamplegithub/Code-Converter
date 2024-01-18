@@ -17,7 +17,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-csharp";
-// import 'ace-builds/src-noconflict/theme-github';
+import 'ace-builds/src-noconflict/theme-github';
 import "ace-builds/src-noconflict/ext-language_tools";
 import "ace-builds/src-noconflict/theme-monokai";
 import CodeConverterIcon from "./Components/codeConverterIcon";
@@ -39,7 +39,7 @@ function App() {
     // Implement code generation logic here
     setLoading(true);
     const data = {
-      code,
+      code:JSON.stringify(code),
       targetLanguage,
     };
     let res = await fetch(`${baseUrl}/convert`, {
@@ -195,11 +195,11 @@ function App() {
   <option value='option3'>Option 3</option>
 </Select> */}
         <select onChange={(e) => setTargetLanguage(e.target.value)}>
-            <option value=""><span>Select language</span></option>
-            <option value="python"><span>Python</span></option>
-            <option value="javascript"><span>JavaScript</span></option>
-            <option value="java"><span>Java</span></option>
-            <option value="csharp"><span>C#</span></option>
+            <option value="">Select language</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="java">Java</option>
+            <option value="csharp">C#</option>
           </select>
         <Menu>
   <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
@@ -282,6 +282,7 @@ function App() {
           </div>
 
           <AceEditor
+           setOptions={{ useWorker: false }}
             mode={inputLanguage.toLowerCase()}
             theme="monokai"
             value={code}
