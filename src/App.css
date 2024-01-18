@@ -19,17 +19,29 @@
 .buttons_at_top{
   display: flex;
   justify-content: space-between;
+  /* flex-wrap: wrap; */
+}
+.hamburger{
+  display: none;
+}
+.buttons_at_top div{
+  border:0px solid red;
+  display: flex;
   flex-wrap: wrap;
 }
 .buttons_at_top button{
   padding:7px;
   cursor: pointer;
-  margin:0px 5px 10px 10px
+  margin:0px 5px 10px 10px;
+  border-radius: 10px;
 }
 .buttons_at_top select{
   padding: 7px;
+  display: block;
   cursor:pointer;
   background-color: rgb(238,238,238);
+  border-radius: 10px;
+  margin:0px 5px 10px 10px;
 }
 .buttons_at_top div:nth-child(2){
   margin: 0px  10px;
@@ -82,5 +94,28 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media  screen and (width<=768px) {
+  .buttons_at_top{
+    display: none;
+  }
+  .hamburger{
+    /* display: block; */
+    display: flex;
+    justify-content: space-around;
+  }
+  /* .hamburger>svg{
+    border:1px solid red;
+    margin-left: 10px;
+  } */
+  .hamburger div:nth-child(2)>select span{
+    /* border:1px solid red; */
+  }
+}
+@media screen and (width<=624px) {
+  .hamburger div:nth-child(2)>select{
+    display: block;
+    border: 0px solid red;
   }
 }
